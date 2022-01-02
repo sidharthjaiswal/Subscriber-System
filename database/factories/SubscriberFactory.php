@@ -14,7 +14,10 @@ class SubscriberFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // prevent redundant state
+            'email' => $this->faker->unique()->safeEmail,
+            'email_verified_at' => now()->format('Y-m-d H:i:s')
         ];
     }
 }
+ 
